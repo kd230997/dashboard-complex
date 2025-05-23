@@ -1,0 +1,87 @@
+@use "../styles/colors.scss" as colors;
+
+$farm-tiles-number: 10;
+
+.farm-screen {
+	background-color: colors.$background-color;
+	width: 100vw;
+	height: 100vh;
+
+	.farm {
+		margin: 1rem 5% 0 5%;
+		padding: 2%;
+		min-height: 90%;
+		height: 90%;
+		border-radius: 10px;
+		background-color: colors.$farm-background;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+
+		.toolbar {
+			background-color: colors.$toolbar;
+			height: 10%;
+			max-height: 10%;
+			flex-grow: 0;
+			border-radius: 10px;
+			padding: 0.75rem;
+			display: inline-flex;
+			flex-direction: row;
+			gap: 0.25rem;
+			flex-basis: 25%;
+
+			.toolbar-item {
+				border-radius: 10%;
+				background-color: colors.$toolbar-item;
+				aspect-ratio: 1 / 1;
+				transition: box-shadow 0.2s ease-in-out;
+				flex-grow: 1;
+
+				&:hover {
+					box-shadow: 0 0 1.5rem 0.1rem colors.$brown-100;
+					cursor: grab;
+				}
+			}
+		}
+
+		.layout {
+			background-color: colors.$farm-layout;
+			max-height: 100%;
+			border-radius: 10px;
+			padding: 3% 5%;
+			flex-grow: 3;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			gap: 0.25rem;
+
+			overflow-y: auto;
+			-ms-overflow-style: none; // IE and Edge
+			scrollbar-width: none; // Firefox
+
+			&::-webkit-scrollbar {
+				display: none; // Chrome, Safari, Opera
+			}
+
+			.farm-tile {
+				border-radius: 10%;
+				background-color: colors.$farm-tile;
+				aspect-ratio: 1 / 1;
+				min-width: calc(100% / $farm-tiles-number - 0.25rem);
+				transition: box-shadow 0.2s ease-in-out;
+
+				&:hover {
+					box-shadow: 0 0 1.5rem 0.1rem colors.$blue-10;
+					cursor: grab;
+				}
+			}
+		}
+	}
+
+	.info {
+		height: 7%;
+		background-color: colors.$user-info;
+		color: colors.$font-color;
+		border-radius: 0 0 10px 10px;
+	}
+}

@@ -1,0 +1,5 @@
+FARM GaME - Click base on web
+
+1 - Plant the crops and collect
+2 - Seasonal crops and realtime.
+3 - Simple loop: Click → Grow → Harvest → Sell/Upgrade → Repeat.
