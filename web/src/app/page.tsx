@@ -6,7 +6,7 @@ export default function Home() {
 		<div className={styles.page}>
 			<ul>
 				<li>
-					<Link href="/farm">Farm</Link>
+					<Link href="/dashboard">Dashboard</Link>
 				</li>
 			</ul>
 		</div>
