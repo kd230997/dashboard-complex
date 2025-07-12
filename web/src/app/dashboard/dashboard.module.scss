@@ -1,29 +1,49 @@
+@import "./styles/font-size.scss";
+@import "./styles/media-query.scss";
+
 .dashboard {
-  background-color: antiquewhite;
-  min-width: 100vw;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: row;
+	background-color: antiquewhite;
+	min-width: 100vw;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	color: black;
+
+	font-size: $dashboard-font-size;
 
 	&__content {
-    display: flex;
-    flex-direction: column;
-  }
+		display: flex;
+		flex-direction: row;
+		min-height: 100vh;
+	}
 
-  .top-nav {
-    color: black;
-    padding: 5% 2%;
-  }
+	.top-nav {
+		padding: 2% 3%;
+	}
 
-  .side-panel {
-    padding: 5%;
-    background-color: aqua;
-    width: 20%;
-  }
+	.side-panel {
+		padding: 5%;
+		background-color: aqua;
+		min-height: 100%;
+		width: 20%;
 
-  .main-layout {
-    padding: 5%;
-    background-color: beige;
-    width: 80%;
-  }
+		font-size: $small-p;
+
+		@include respond-to($device-mobile) {
+			display: none;
+		}
+	}
+
+	.main-layout {
+		padding: 5%;
+		background-color: beige;
+		width: 80%;
+		min-height: 100%;
+
+		font-size: $small-p;
+
+		@include respond-to($device-mobile) {
+			width: 100%;
+		}
+	}
 }

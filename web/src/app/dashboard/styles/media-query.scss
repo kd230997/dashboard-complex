@@ -1,0 +1,41 @@
+/* Breakpoints */
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+
+// Device names as variables for extendability
+$device-mobile: mobile;
+$device-tablet: tablet;
+$device-desktop: desktop;
+
+/* Mixin for media queries */
+@mixin respond-to($device) {
+  @if $device == $device-mobile {
+    @media (max-width: #{$breakpoint-mobile}) {
+      @content;
+    }
+  } @else if $device == $device-tablet {
+    @media (min-width: #{$breakpoint-mobile + 1}) and (max-width: #{$breakpoint-tablet}) {
+      @content;
+    }
+  } @else if $device == $device-desktop {
+    @media (min-width: #{$breakpoint-tablet + 1}) {
+      @content;
+    }
+  }
+}
+
+/* Example usage:
+.selector {
+  font-size: 16px;
+  @include respond-to(mobile) {
+    font-size: 12px;
+  }
+  @include respond-to(tablet) {
+    font-size: 14px;
+  }
+  @include respond-to(desktop) {
+    font-size: 18px;
+  }
+}
+*/

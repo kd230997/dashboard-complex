@@ -7,7 +7,7 @@ export default function Farm() {
 	return (
 		<div className={styles["dashboard"]}>
 			<TopNavigationBar />
-			<div className="dashboard__content">
+			<div className={styles["dashboard__content"]}>
 				<SidePanel />
 				<MainLayout />
 			</div>
