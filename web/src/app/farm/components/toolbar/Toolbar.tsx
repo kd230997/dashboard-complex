@@ -13,7 +13,7 @@ export default function Toolbar() {
 	const toolbarItemProps: ToolbarItemProps = {
 		key: 0,
 		id: 0,
-		icon: "../../../../../public/assests/watering-can.png",
+		icon: "",
 		name: "Plant",
 		class: styles["toolbar-item-plant"],
 		tooltip: "Plant",
