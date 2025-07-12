@@ -1,0 +1,29 @@
+.dashboard {
+  background-color: antiquewhite;
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+
+	&__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .top-nav {
+    color: black;
+    padding: 5% 2%;
+  }
+
+  .side-panel {
+    padding: 5%;
+    background-color: aqua;
+    width: 20%;
+  }
+
+  .main-layout {
+    padding: 5%;
+    background-color: beige;
+    width: 80%;
+  }
+}
