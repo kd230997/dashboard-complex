@@ -1,5 +1,7 @@
 import React from "react";
 import Spinner from "../icon/Spinner";
+import "./button.scss";
+
 
 type ButtonProps = {
 	children: React.ReactNode;
