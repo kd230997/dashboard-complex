@@ -46,5 +46,9 @@ $padding-common: clamp(0.9rem, 2.5vw, 1.5rem);
 		@include respond-to($device-mobile) {
 			width: 100%;
 		}
+
+		.button-demo {
+			width: 50%;
+		}
 	}
 }
