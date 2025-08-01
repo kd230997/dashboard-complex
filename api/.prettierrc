@@ -2,9 +2,12 @@
   "prettier/prettier": [
     "error",
     {
-      "singleQuote": false,
+      "singleQuote": true,
       "parser": "flow",
       "endOfLine":"auto"
+    },
+    {
+      "usePrettierrc": false
     }
   ]
 }

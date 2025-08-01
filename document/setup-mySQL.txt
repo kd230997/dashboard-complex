@@ -1,0 +1,44 @@
+# Pull MySQL image
+docker pull mysql:8.0
+
+# Create a named volume for MySQL data
+mkdir C:\Users\kd230\mysql_data
+docker volume create mysql_data
+
+# Create MySQL container with named volume
+
+docker run -d \
+  --name mysql-server \
+  -e MYSQL_ROOT_PASSWORD=test@123 \
+  -v "//c/Users/kd230/mysql_data:/var/lib/mysql" \
+  -p 3306:3306 \
+  mysql:8.0
+
+# The data will be stored in: C:\Users\kd230\mysql_data
+# To verify container is running: docker ps
+# To check logs: docker logs mysql-server
+
+# Create database and user (run these commands after container is up)
+docker exec -it mysql-server mysql -uroot -ptest@123 -e "
+CREATE DATABASE IF NOT EXISTS dashboard_db;
+CREATE USER IF NOT EXISTS 'dashboard_user'@'%' IDENTIFIED BY 'dashboard_password';
+GRANT ALL PRIVILEGES ON dashboard_db.* TO 'dashboard_user'@'%';
+FLUSH PRIVILEGES;
+"
+
+# Database connection details:
+# Host: localhost
+# Port: 3306
+# Database: dashboard_db
+# Username: dashboard_user
+# Password: dashboard_password
+
+
+
+Setup Prisma:
+
+npx prisma migrate dev --name init
+
+Generate the Prisma client:
+
+npx prisma generate

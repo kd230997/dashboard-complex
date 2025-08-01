@@ -47,8 +47,26 @@ $padding-common: clamp(0.9rem, 2.5vw, 1.5rem);
 			width: 100%;
 		}
 
-		.button-demo {
-			width: 50%;
+		.grid {
+			display: flex;
+			gap: clamp(0.9rem, 2vw, 1.5rem);
+			flex-wrap: wrap;
+
+			.item-4 {
+				width: 25%;
+			}
+
+			.item-3 {
+				width: 33.33%;
+			}
+
+			.item-2 {
+				width: 50%;
+			}
+
+			.item-1 {
+				width: 100%;
+			}
 		}
 	}
 }
