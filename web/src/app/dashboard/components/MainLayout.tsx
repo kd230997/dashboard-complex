@@ -16,7 +16,7 @@ const MainLayout: React.FC = () => {
 						<p>This is the content of the accordion.</p>
 						<p>This is the content of the accordion.</p>
 						<p>This is the content of the accordion.</p>
-						<p>This is the content of the accordion.</p>
+						<p>This is the content of the accordion.</p> 
 						<p>This is the content of the accordion.</p>
 						<p>This is the content of the accordion.</p>
 						<p>This is the content of the accordion.</p>
