@@ -1,8 +1,12 @@
 export interface User {
-  id: number;
+  id: string;
   email: string;
-  name: string;
   password: string;
+  name: string;
+  createdAt?: Date;
+  updatedAt?: Date;
+  resetToken?: String;
+  resetTokenExp?: Date;
 }
 
 // This type omits sensitive data for responses

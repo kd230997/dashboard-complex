@@ -1,3 +1,13 @@
-.spl-input {
-	width: 100%;
+.spl-input-group {
+	display: flex;
+	gap: 0.45rem;
+	flex-direction: column;
+
+	.spl-input {
+		width: 100%;
+	}
+
+	.spl-label {
+		text-decoration: wavy;
+	}
 }

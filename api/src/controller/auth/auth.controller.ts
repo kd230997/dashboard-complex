@@ -2,36 +2,37 @@ import {
   Controller,
   Post,
   Body,
-  Request,
   UseGuards,
   Get,
+  HttpStatus,
+  HttpCode,
 } from "@nestjs/common";
-import { AuthService } from "../../service/user/auth.service";
-import { JwtAuthGuard } from "../../middleware/jwt-auth.guard";
+import { AuthService } from "@/src/service/auth/auth.service";
+import { JwtAuthGuard } from "@/src/middleware/jwt-auth.guard";
+import { RegisterUserDto } from "@/src/dto/user/register.dto";
+import { LoginDto } from "@/src/dto/user/login.dto";
+import { ApiBearerAuth } from "@nestjs/swagger";
 
 @Controller("auth")
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @Post("login")
-  async login(@Body() body: { email: string; password: string }) {
+  @HttpCode(HttpStatus.OK)
+  async login(@Body() body: LoginDto) {
     const user = await this.authService.validateUser(body.email, body.password);
     return this.authService.login(user);
   }
 
   @Post("register")
+  @HttpCode(HttpStatus.OK)
   async register(
-    @Body() body: { email: string; password: string; name: string },
+    @Body() body: RegisterUserDto,
   ) {
     return this.authService.register(body.email, body.password, body.name);
   }
 
-  @Post("profile")
-  @UseGuards(JwtAuthGuard)
-  getProfile(@Request() req) {
-    return req.user;
-  }
-
+  @ApiBearerAuth('access-token')
   @Get("users")
   @UseGuards(JwtAuthGuard)
   getUsers() {

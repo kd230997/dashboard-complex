@@ -7,7 +7,8 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - "//c/Users/kd230/mysql_data:/var/lib/mysql"
+    # Replace /mnt/g/MyProject/database-entry/mysql_data with your mounted destination volume
+      - ~/mysql_data:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=test@123
     restart: unless-stopped

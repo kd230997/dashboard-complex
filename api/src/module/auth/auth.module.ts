@@ -1,10 +1,12 @@
 import { Module } from "@nestjs/common";
-import { AuthService } from "../../service/user/auth.service";
-import { AuthController } from "../../controller/user/auth.controller";
+import { AuthService } from "../../service/auth/auth.service";
+import { AuthController } from "../../controller/auth/auth.controller";
 import { PassportModule } from "@nestjs/passport";
 import { PrismaModule } from "prisma/prisma.module";
 import { JwtModule } from "@nestjs/jwt";
 import { JwtStrategy } from "../../middleware/jwt.strategy";
+import { CustomLogger } from "@/src/common/logger/custom-logger.service";
+import { ConfigurationService } from "@/src/service/helper/configuration.service";
 
 @Module({
   imports: [
@@ -15,7 +17,7 @@ import { JwtStrategy } from "../../middleware/jwt.strategy";
     }),
     PrismaModule,
   ],
-  providers: [AuthService, JwtStrategy],
+  providers: [AuthService, JwtStrategy, CustomLogger, ConfigurationService],
   controllers: [AuthController],
 })
-export class UserModule {}
+export class AuthModule {}

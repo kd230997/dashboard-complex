@@ -41,7 +41,8 @@
     // Path resolution
     "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"]
+      "@/src/*": ["src/*"],
+      "@/prisma/*": ["prisma/*"]
     },
 
     // Other
