@@ -18,7 +18,7 @@ export class AuthService {
     private jwtService: JwtService,
     private prisma: PrismaService,
     private readonly logger: CustomLogger,
-    private configService: ConfigurationService
+    private configService: ConfigurationService,
   ) {}
 
   async validateUser(email: string, password: string): Promise<any> {
@@ -35,7 +35,9 @@ export class AuthService {
   login(user: any) {
     const payload = { email: user.email, sub: user.id };
     return {
-      access_token: this.jwtService.sign(payload, { expiresIn: this.configService.getExpiresIn() }),
+      access_token: this.jwtService.sign(payload, {
+        expiresIn: this.configService.getExpiresIn(),
+      }),
     };
   }
 
@@ -76,6 +78,12 @@ export class AuthService {
   async getUsers() {
     return this.prisma.user.findMany({
       select: { email: true, name: true },
+    });
+  }
+
+  async getUser(email: string) {
+    return this.prisma.user.findUnique({
+      where: { email: email },
     });
   }
 }

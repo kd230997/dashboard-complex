@@ -8,12 +8,35 @@ datasource dashboard_db {
 }
 
 model User {
-  id            String   @id @default(uuid()) @dashboard_db.Char(36)
+  id            String        @id @default(uuid()) @dashboard_db.Char(36)
   name          String?
-  email         String    @unique
+  email         String        @unique
   password      String
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
   resetToken    String?
   resetTokenExp DateTime?
+  balances      UserBalance[]
+  balanceLogs   BalanceLog[]
+}
+
+model UserBalance {
+  id        String   @id @default(uuid())
+  userId    String   @unique
+  user      User     @relation(fields: [userId], references: [id])
+  amount    Decimal  @dashboard_db.Decimal(12, 2)
+  currency  String   @dashboard_db.VarChar(3)
+  updatedAt DateTime @updatedAt
+}
+
+model BalanceLog {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  amount    Decimal  @dashboard_db.Decimal(12, 2)
+  source    String?  @dashboard_db.VarChar(100)
+  note      String?
+  loggedAt  DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

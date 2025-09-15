@@ -40,7 +40,7 @@ export default function LoginPages() {
 
 	return (
 		<div className={styles["login"]}>
-			<form onSubmit={handleSubmit} className={styles["login__form"]}>
+			<form autoComplete="true" onSubmit={handleSubmit} className={styles["login__form"]}>
 				<Input
 					className={styles["login__form__email"]}
 					label="Email"
