@@ -26,7 +26,7 @@ export const AuthService = {
 	},
 
 	saveToken(token: string) {
-		Cookies.set("token", token, { expires: 1 });
+		Cookies.set("token", token, { expires: 1, path: "/" });
 	},
 
 	getToken(): string | undefined {
@@ -34,6 +34,6 @@ export const AuthService = {
 	},
 
 	logout() {
-		Cookies.remove("token");
+		Cookies.remove("token", { path: "/" });
 	},
 };

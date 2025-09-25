@@ -1,16 +1,6 @@
-import MainLayout from "./components/MainLayout";
-import SidePanel from "./components/SidePanel";
-import TopNavigationBar from "./components/TopNavigationBar";
-import styles from "./dashboard.module.scss";
+import { redirect } from "next/navigation";
+import { ROUTES } from "@/src/constants/routes";
 
-export default function Farm() {
-	return (
-		<div className={styles["dashboard"]}>
-			<TopNavigationBar />
-			<div className={styles["dashboard__content"]}>
-				<SidePanel />
-				<MainLayout />
-			</div>
-		</div>
-	);
+export default function DashboardPage() {
+	return redirect(ROUTES.dashboard.children?.balanceLogs.path || "");
 }
