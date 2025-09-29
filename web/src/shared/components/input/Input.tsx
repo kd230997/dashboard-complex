@@ -1,5 +1,5 @@
 import React, { HTMLInputTypeAttribute } from "react";
-import "./input.scss";
+import "./style.scss";
 
 interface InputProps {
 	type?: HTMLInputTypeAttribute;
@@ -12,11 +12,13 @@ interface InputProps {
 	disabled?: boolean;
 	autoFocus?: boolean;
 	name?: string;
+	autoComplete?: string;
+	required?: boolean;
 }
 
 const Input: React.FC<InputProps> = ({
 	type = "text",
-	placeholder,
+	placeholder = "Please enter...",
 	value,
 	onChange = () => {},
 	className = "",
@@ -24,6 +26,8 @@ const Input: React.FC<InputProps> = ({
 	autoFocus = false,
 	label = "text",
 	name = "",
+	required = false,
+	autoComplete = "off",
 }) => {
 	return (
 		<div className={`spl-input-group ${className}`}>
@@ -34,6 +38,8 @@ const Input: React.FC<InputProps> = ({
 				disabled={disabled}
 				type={type}
 				placeholder={placeholder}
+				required={required}
+				autoComplete={autoComplete}
 				value={value}
 				name={name}
 				onChange={onChange}

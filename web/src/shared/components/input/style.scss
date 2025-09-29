@@ -1,0 +1,28 @@
+.spl-input-group {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+
+	input {
+		outline: none;
+		border: 1px solid #D9D9D9;
+  	border-radius: 8px;
+
+		&:focus {
+			outline: none;
+		}
+
+		&.spl-input {
+			background-color: #FFFFFF;
+			width: 100%;
+			color: black;
+			border-radius: 8px;
+			padding: 1.231rem 0.923rem;
+			margin-top: 10px;
+		}
+	}
+
+	.spl-label {
+		text-decoration: wavy;
+	}
+}

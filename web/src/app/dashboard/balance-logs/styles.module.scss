@@ -1,3 +1,15 @@
 .balance-logs {
 	font-size: clamp(1rem, 0.45vw, 1.6rem);
 }
+
+.balance-logs-form {
+	&__log-form {
+		display: flex;
+		flex-direction: row;
+		gap: 1.5rem;
+		padding-bottom: 10px;
+	}
+
+	&__action {
+	}
+}

@@ -2,7 +2,7 @@
 
 import styles from "./login.module.scss";
 import Input from "@/src/shared/components/input/Input";
-import Button from "@/src/shared/components/button/Button";
+import { Button } from "@/src/shared/components/button/Button";
 import { LoginDto, AuthService } from "@/src/services/auth.service";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -40,13 +40,19 @@ export default function LoginPages() {
 
 	return (
 		<div className={styles["login"]}>
-			<form autoComplete="true" onSubmit={handleSubmit} className={styles["login__form"]}>
+			<form
+				autoComplete="true"
+				onSubmit={handleSubmit}
+				className={styles["login__form"]}
+			>
 				<Input
 					className={styles["login__form__email"]}
 					label="Email"
 					type="email"
 					name="email"
 					value={form.email}
+					autoComplete="username"
+					required
 					onChange={handleFormChange}
 				/>
 				<Input
@@ -54,6 +60,8 @@ export default function LoginPages() {
 					label="Password"
 					type="password"
 					name="password"
+					autoComplete="username"
+					required
 					value={form.password}
 					onChange={handleFormChange}
 				/>

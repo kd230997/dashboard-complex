@@ -2,7 +2,6 @@ import React from "react";
 import Spinner from "../icon/Spinner";
 import "./button.scss";
 
-
 type ButtonProps = {
 	children: React.ReactNode;
 	loading?: boolean;
@@ -32,4 +31,4 @@ const Button: React.FC<ButtonProps> = ({
 	);
 };
 
-export default Button;
+export { Button };
